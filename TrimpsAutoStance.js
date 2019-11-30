@@ -2,19 +2,24 @@
     let dom = document.getElementById('formation2');
     let scry = document.getElementById('formation4');
     if (dom !== null && scry !== null) {
-        if (inBionicMap() && !inWorld()) {
+        if (inBionicMap() && !inWorld() && isValid()) {
             console.log('in bionic')
             // setNewFormation(2, dom);
-        } else if (inVoidMap() && !inWorld()) {
+        } else if (inVoidMap() && !inWorld() && isValid()) {
             console.log('in void');
-        // setNewFormation(4, scry);
-        } else if (inWorld()) {
-        console.log('in world')
-        // setNewFormation(4, scry);
+            // setNewFormation(4, scry);
+        } else if (inWorld() && isValid()) {
+            console.log('in world')
+            // setNewFormation(4, scry);
         }
     }
     setTimeout(run, 1000)
 })();
+
+function isValid() {
+    let mapButtons = document.getElementById('battleHeadContainer');
+    return mapButtons.style.cssText === 'display: block;';
+}
 
 function inVoidMap() {
     let mapButtons = document.getElementById('repeatVoidsContainer');
