@@ -7,12 +7,11 @@
             // setNewFormation(2, dom);
         } else if (inVoidMap() && !inWorld()) {
             console.log('in void');
-        }
         // setNewFormation(4, scry);
-        // } else if (inWorld()) {
+        } else if (inWorld()) {
         console.log('in world')
         // setNewFormation(4, scry);
-        // }
+        }
     }
     setTimeout(run, 1000)
 })();
