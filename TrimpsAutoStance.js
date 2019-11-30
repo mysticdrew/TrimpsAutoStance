@@ -3,14 +3,14 @@
     let scry = document.getElementById('formation4');
     if (dom !== null && scry !== null) {
         if (inBionicMap() && !inWorld() && isValid()) {
-            console.log('in bionic')
-            // setNewFormation(2, dom);
+            // console.log('in bionic')
+            setNewFormation(2, dom);
         } else if (inVoidMap() && !inWorld() && isValid()) {
-            console.log('in void');
-            // setNewFormation(4, scry);
+            // console.log('in void');
+            setNewFormation(4, scry);
         } else if (inWorld() && isValid()) {
-            console.log('in world')
-            // setNewFormation(4, scry);
+            // console.log('in world')
+            setNewFormation(4, scry);
         }
     }
     setTimeout(run, 1000)
@@ -29,6 +29,11 @@ function inVoidMap() {
 function inBionicMap() {
     let mapButtons = document.getElementById('climbBwContainer');
     return mapButtons.style.cssText === 'display: block;';
+}
+
+// if bionic is false, world is false, but valid, we're likely in a regular map.
+function inRegularMap() {
+    return isValid() && !inBionicMap() && !inWorld();
 }
 
 function inWorld() {
