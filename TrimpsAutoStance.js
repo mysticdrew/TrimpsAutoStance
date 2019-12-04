@@ -1,3 +1,5 @@
+let voidAtZone = 631;
+
 (function run() {
     let dom = document.getElementById('formation2');
     let scry = document.getElementById('formation4');
@@ -15,6 +17,7 @@
             setNewFormation(4, scry);
         }
     }
+    canRunVoidMaps();
     setTimeout(run, 1000)
 })();
 
@@ -60,3 +63,31 @@ function setNewFormation(formation, button) {
         setFormation(formation);
     }
 }
+
+//run voidmaps
+// get voidCount - int 'game.global.totalVoidMaps'
+// in maps screen - boolean game.global.preMapsActive
+function canRunVoidMaps() {
+    let currentZone = game.global.world;
+    let totalVoids = game.global.totalVoidMaps;
+    let inMap = game.global.mapsActive;
+    let inMapScreen = game.global.preMapsActive;
+
+    if (currentZone === voidAtZone && totalVoids > 0 && !inMap && inMapScreen) {
+        runVoidMaps();
+    }
+}
+
+function runVoidMaps() {
+    let nextVoid = getNextVoidId();
+    if (nextVoid) {
+        if (setting.repeat) {
+            game.options.menu.repeatVoids.enabled = ((setting.repeat == 1) ? 1 : 0);
+        }
+        if (game.global.currentMapId) recycleMap();
+        selectMap(nextVoid);
+        runMap();
+    }
+}
+
+
