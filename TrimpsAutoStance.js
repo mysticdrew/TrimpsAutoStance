@@ -70,14 +70,15 @@ function setNewFormation(formation, button) {
 // get voidCount - int 'game.global.totalVoidMaps'
 // in maps screen - boolean game.global.preMapsActive
 function canRunVoidMaps() {
-    if (typeof game.global.world === "undefined") return;
-    let currentZone = game.global.world;
-    let totalVoids = game.global.totalVoidMaps;
-    let inMap = game.global.mapsActive;
-    let inMapScreen = game.global.preMapsActive;
+    if (game.global.world) {
+        let currentZone = game.global.world;
+        let totalVoids = game.global.totalVoidMaps;
+        let inMap = game.global.mapsActive;
+        let inMapScreen = game.global.preMapsActive;
 
-    if (currentZone === voidAtZone && totalVoids > 0 && !inMap && inMapScreen) {
-        runVoidMaps();
+        if (currentZone === voidAtZone && totalVoids > 0 && !inMap && inMapScreen) {
+            runVoidMaps();
+        }
     }
 }
 
