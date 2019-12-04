@@ -1,4 +1,4 @@
-let voidAtZone = 631;
+let voidAtZone = 630;
 
 (function run() {
     if (typeof game !== "undefined") {
@@ -70,7 +70,7 @@ function setNewFormation(formation, button) {
 // get voidCount - int 'game.global.totalVoidMaps'
 // in maps screen - boolean game.global.preMapsActive
 function canRunVoidMaps() {
-    if (typeof game.global.world === "undefined") return;
+    if (typeof game.global.world == "undefined") return;
     let currentZone = game.global.world;
     let totalVoids = game.global.totalVoidMaps;
     let inMap = game.global.mapsActive;
