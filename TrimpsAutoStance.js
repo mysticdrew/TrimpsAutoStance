@@ -1,23 +1,25 @@
 let voidAtZone = 630;
 
 (function run() {
-    let dom = document.getElementById('formation2');
-    let scry = document.getElementById('formation4');
-    if (dom !== null && scry !== null) {
-        if (inBionicMap()) {
-            // console.log('in bionic');
-            setNewFormation(2, dom);
-        } else if (inVoidMap()) {
-            // console.log('in void');
-            setNewFormation(4, scry);
-        } /*else if (inSpireV()) {
+    if (typeof game !== "undefined") {
+        let dom = document.getElementById('formation2');
+        let scry = document.getElementById('formation4');
+        if (dom !== null && scry !== null) {
+            if (inBionicMap()) {
+                // console.log('in bionic');
+                setNewFormation(2, dom);
+            } else if (inVoidMap()) {
+                // console.log('in void');
+                setNewFormation(4, scry);
+            } /*else if (inSpireV()) {
             setNewFormation(2, dom);
         }*/ else if (inWorld()) {
-            // console.log('in world');
-            setNewFormation(4, scry);
+                // console.log('in world');
+                setNewFormation(4, scry);
+            }
         }
+        canRunVoidMaps();
     }
-    canRunVoidMaps();
     setTimeout(run, 1000)
 })();
 
