@@ -1,4 +1,4 @@
-let voidAtZone = 631;
+let voidAtZone = 630;
 
 (function run() {
     let dom = document.getElementById('formation2');
@@ -81,9 +81,6 @@ function canRunVoidMaps() {
 function runVoidMaps() {
     let nextVoid = getNextVoidId();
     if (nextVoid) {
-        if (setting.repeat) {
-            game.options.menu.repeatVoids.enabled = ((setting.repeat == 1) ? 1 : 0);
-        }
         if (game.global.currentMapId) recycleMap();
         selectMap(nextVoid);
         runMap();
