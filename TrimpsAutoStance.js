@@ -66,9 +66,6 @@ function setNewFormation(formation, button) {
     }
 }
 
-//run voidmaps
-// get voidCount - int 'game.global.totalVoidMaps'
-// in maps screen - boolean game.global.preMapsActive
 function canRunVoidMaps() {
     if (game.global.world) {
         let currentZone = game.global.world;
@@ -77,6 +74,7 @@ function canRunVoidMaps() {
         let inMapScreen = game.global.preMapsActive;
 
         if (currentZone === voidAtZone && totalVoids > 0 && !inMap && inMapScreen) {
+            console.log("Running Voids");
             runVoidMaps();
         }
     }
