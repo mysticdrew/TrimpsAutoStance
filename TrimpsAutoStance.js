@@ -7,15 +7,15 @@ let voidAtZone = 630;
         if (dom !== null && scry !== null) {
             if (inBionicMap()) {
                 // console.log('in bionic');
-                setNewFormation(2, dom);
+                setNewFormation(2);
             } else if (inVoidMap()) {
                 // console.log('in void');
-                setNewFormation(4, scry);
+                setNewFormation(4);
             } /*else if (inSpireV()) {
-            setNewFormation(2, dom);
+            setNewFormation(2);
         }*/ else if (inWorld()) {
                 // console.log('in world');
-                setNewFormation(4, scry);
+                setNewFormation(4);
             }
         }
         canRunVoidMaps();
@@ -54,16 +54,8 @@ function inWorld() {
 }
 
 function setNewFormation(formation, button) {
-    if (button.classList.contains('formationStateDisabled')) {
-        console.log("Switching Stance: " + formation);
-        let current = document.getElementsByClassName('formationStateEnabled').item(0);
-        current.classList.remove('formationStateEnabled');
-        current.classList.add('formationStateDisabled');
-
-        button.classList.remove('formationStateDisabled');
-        button.classList.add('formationStateEnabled');
-        setFormation(formation);
-    }
+    console.log("Switching Stance: " + formation);
+    setFormation(formation);
 }
 
 function canRunVoidMaps() {
@@ -75,6 +67,7 @@ function canRunVoidMaps() {
 
         if (currentZone === voidAtZone && totalVoids > 0 && !inMap && inMapScreen) {
             console.log("Running Voids");
+            setNewFormation(4);
             runVoidMaps();
         }
     }
