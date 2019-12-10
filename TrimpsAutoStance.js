@@ -1,4 +1,4 @@
-let voidAtZone = 630;
+let voidAtZone = 645;
 
 (function run() {
     if (typeof game !== "undefined") {
