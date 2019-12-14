@@ -1,5 +1,5 @@
-let voidAtZone = 645;
-
+let voidAtHeliumZone = 645;
+let voidAtRadonZone = 200;
 (function run() {
     if (typeof game !== "undefined") {
         let dom = document.getElementById('formation2');
@@ -60,17 +60,21 @@ function setNewFormation(formation, button) {
 
 function canRunVoidMaps() {
     if (game.global.world) {
-        let currentZone = game.global.world;
         let totalVoids = game.global.totalVoidMaps;
         let inMap = game.global.mapsActive;
         let inMapScreen = game.global.preMapsActive;
 
-        if (currentZone === voidAtZone && totalVoids > 0 && !inMap && inMapScreen) {
+        if (voidAtZone() && totalVoids > 0 && !inMap && inMapScreen) {
             console.log("Running Voids");
             setNewFormation(4);
             runVoidMaps();
         }
     }
+}
+
+function voidAtZone() {
+    return (game.global.world === voidAtHeliumZone && game.global.universe === 1)
+        || (game.global.world === voidAtRadonZone && game.global.universe === 2)
 }
 
 function runVoidMaps() {
