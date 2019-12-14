@@ -53,9 +53,11 @@ function inWorld() {
     return mapButtons.classList.contains('col-xs-off') && isValid();
 }
 
-function setNewFormation(formation, button) {
-    console.log("Switching Stance: " + formation);
-    setFormation(formation);
+function setNewFormation(formation) {
+    if (game.global.formation !== formation) {
+        console.log("Switching Stance: " + formation);
+        setFormation(formation);
+    }
 }
 
 function canRunVoidMaps() {
