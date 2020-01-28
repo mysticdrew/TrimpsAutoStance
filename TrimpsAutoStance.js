@@ -1,5 +1,5 @@
-let voidAtHeliumZone = 660;
-let voidAtRadonZone = 20;
+let voidAtHeliumZone = 680;
+let voidAtRadonZone = 120;
 (function run() {
     if (typeof game !== "undefined") {
         let dom = document.getElementById('formation2');
