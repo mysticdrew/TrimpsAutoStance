@@ -1,4 +1,4 @@
-let voidAtHeliumZone = 680;
+let voidAtHeliumZone = 675;
 let voidAtRadonZone = 120;
 (function run() {
     if (typeof game !== "undefined") {
